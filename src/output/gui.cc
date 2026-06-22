@@ -220,4 +220,8 @@ Colour get_background_colour_preference(lua::state &l) {
 
 conky::simple_config_setting<bool> own_window("own_window", false, false);
 
+#if defined(BUILD_WAYLAND)
+conky::simple_config_setting<bool> own_window_click_through("own_window_click_through", false, true);
+#endif
+
 /******************** </SETTINGS> ************************/

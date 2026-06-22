@@ -40,6 +40,7 @@
 
 struct wl_array;
 struct wl_surface;
+struct wl_region;
 struct zwlr_layer_shell_v1;
 struct zwlr_layer_surface_v1;
 struct zwlr_layer_surface_v1_listener;

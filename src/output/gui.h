@@ -233,4 +233,14 @@ inline uint8_t get_background_alpha_preference(lua::state &l) {
 }
 #endif /* OWN_WINDOW || BUILD_WAYLAND */
 
+#if defined(BUILD_WAYLAND)
+/// @brief Make the window ignore all pointer input.
+///
+/// On Wayland this assigns an empty input region to the wl_surface so mouse
+/// and touch events pass through to the surface below.
+///
+/// @see own_window_type
+extern conky::simple_config_setting<bool> own_window_click_through;
+#endif
+
 #endif /* _CONKY_GUI_H_ */

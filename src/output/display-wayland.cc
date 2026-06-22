@@ -681,6 +681,14 @@ bool display_output_wayland::initialize() {
   wl_display_roundtrip(global_display);
 
   wl_surface *surface = wl_compositor_create_surface(wl_globals.compositor);
+  if (own_window_click_through.get(*state)) {
+#ifdef BUILD_MOUSE_EVENTS
+    LOG_WARNING("own_window_click_through disables all mouse events under Wayland");
+#endif
+    wl_region *input_region = wl_compositor_create_region(wl_globals.compositor);
+    wl_surface_set_input_region(surface, input_region);
+    wl_region_destroy(input_region);
+  }
   global_window = window_create(surface, wl_globals.shm, 1, 1);
   window_allocate_buffer(global_window);
 
