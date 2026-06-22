@@ -408,6 +408,11 @@ values:
     desc: Force UTF8. Requires [XFT](#use_xft).
   - name: overwrite_file
     desc: Overwrite the file given as argument.
+  - name: own_window_click_through
+  - default: false
+  - desc: |-
+      Boolean, makes the Wayland window completely ignore mouse input.
+      Mouse clicks pass through the Conky window to the surface below it.
   - name: own_window
     desc: Boolean, draw conky in own window instead of drawing on root window.
   - name: own_window_class
